@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-area {
+    position: relative;
+    width: 900px;
+    height: 300px;
+    border: none;
+    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 85%, #98D98E 85%, #98D98E 100%);
+    overflow: hidden;
+}
+
+.dino {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    background-image: url('pngwing.com.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    background-position: 0 0;
+    background-color: transparent;
+    bottom: 30px;
+    left: 50px;
+}
+
+.dino.jump {
+    animation: jump 0.5s ease;
+}
+
+@keyframes jump {
+    0%, 100% { bottom: 30px; }
+    50% { bottom: 130px; }
+}
+
+.cactus {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background: #228B22;
+    bottom: 0;
+    right: 0;
+    border-radius: 3px;
+}
+
+.game-over {
+    display: none;
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ff0000;
+    font-weight: bold;
+}
