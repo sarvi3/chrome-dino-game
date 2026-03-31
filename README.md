@@ -1,16 +1,21 @@
 # Chrome Dino Game
 
-A browser-based game inspired by the Chrome Dino game, built using HTML, CSS, and JavaScript.
+A browser-based game inspired by the Chrome Dino game.
 
-## Features
+## 🚀 Features
 - Obstacle movement
 - Collision detection
 - Score tracking
 
-## Technologies Used
+## 🛠️ Technologies Used
 - HTML
 - CSS
 - JavaScript
 
-## Purpose
-This project was built to practice JavaScript game logic and real-time interactions.
+## 📌 What I Learned
+- Implementing game logic using JavaScript
+- Handling real-time interactions
+- Working with animations and timing
+
+## 🔗 Live Demo (optional)
+(Add link here)
