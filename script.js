@@ -1,8 +1,8 @@
-// Game variables
 const dino = document.getElementById('dino');
 const cactus = document.getElementById('cactus');
 const scoreElement = document.getElementById('score');
 const gameOverElement = document.getElementById('gameOver');
+const startMessageElement = document.getElementById('startMessage');
 
 let score = 0;
 let isJumping = false;
@@ -35,42 +35,37 @@ function jump() {
     }, 20);
 }
 
-// Move cactus
 function moveCactus() {
     if (isGameOver) return;
     
     cactusPosition -= currentSpeed;
     cactus.style.right = (900 - cactusPosition) + 'px';
-    
-    // Reset cactus position when it goes off screen
+  
     if (cactusPosition < 0) {
         cactusPosition = 900;
         score++;
         scoreElement.textContent = score;
         
         // Increase speed every 10 points
-        if (score % 10 === 0 && score > 0) {
+        if (score % 5 === 0 && score > 0) {
             currentSpeed += speedIncrement;
         }
     }
-    
     if (cactusPosition > 30 && cactusPosition < 130 && position < 80) {
         gameOver();
     }
-    
     requestAnimationFrame(moveCactus);
 }
 
-// Game over function
 function gameOver() {
     isGameOver = true;
     gameOverElement.style.display = 'block';
     cactus.style.animation = 'none';
 }
 
-// Reset game
 function resetGame() {
     isGameOver = false;
+    gameStarted = true;
     score = 0;
     scoreElement.textContent = score;
     position = 0;
@@ -78,19 +73,24 @@ function resetGame() {
     currentSpeed = baseSpeed; // Reset speed
     dino.style.bottom = '0px';
     gameOverElement.style.display = 'none';
+    startMessageElement.style.display = 'none';
     moveCactus();
 }
+let gameStarted = false;
 
-// Event listeners
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
         if (isGameOver) {
             resetGame();
         } else {
+            if (!gameStarted) {
+                gameStarted = true;
+                startMessageElement.style.display = 'none';
+                moveCactus();
+            }
             jump();
         }
     }
 });
 
-// Start the game
-moveCactus();
+// moveCactus();
